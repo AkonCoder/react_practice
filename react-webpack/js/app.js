@@ -1,31 +1,33 @@
-/**
- * Created by pomy on 15/11/4.
- */
 import React from 'react';
 import Router from 'react-router';
-import {DefaultRoute, Link, Route, RouteHandler} from 'react-router';
+import { DefaultRoute, Link, Route, RouteHandler } from 'react-router';
 
-import Hello from './hello';
+import HelloHandler from './hello.js';
+import Forms from './form.js';
+import Timer from './timer.js';
+import Menu from './menu.js';
 
 let App = React.createClass({
-    render(){
+    render() {
         return (
-            <div className = 'nav'>
-                <Link to='app'  className='homelink'>Home </Link>
-                <Link to='hello'  className='hellolink'>Say Hello </Link>
-                {/* 注释 this is the importTant part */}
-                <RouteHandler />
+            <div className="nav">
+                <Link to="app" className="homelink">Home  </Link>
+                <Link to="hello" className="hellolink">  Say Hello</Link>
+                <Link to="form" className="formlink">  This is a form with bootstrap</Link>
+                <RouteHandler/>
+                <Timer start={Date.now()} />
+                <Menu items={['Home','About','Contect']} />
             </div>
         )
-    }
 });
 
 let routes = (
-    <Route name='app' path='/' handler={App}>
-        <Route name='hello' path='/hello' handler={Hello} />
+    <Route name="app" path="/" handler={App}>
+        <Route name="hello" path="/hello" handler={HelloHandler}/>
+        <Route name="form" path="/form" handler={Forms}/>
     </Route>
-);
+),
 
-Router.run(routes, function(handler){
-    React.render(<handler />, document.body);
+Router.run(routes, function (Handler) {
+    React.render(<Handler />, document.body);
 });
