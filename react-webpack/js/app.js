@@ -14,12 +14,12 @@ let App = React.createClass({
                 <Link to="app" className="homelink">Home  </Link>
                 <Link to="hello" className="hellolink">  Say Hello</Link>
                 <Link to="form" className="formlink">  This is a form with bootstrap</Link>
-                <RouteHandler/>
+                <RouteHandler />
                 <Timer start={Date.now()} />
                 <Menu items={['Home','About','Contect']} />
             </div>
-        )
-});
+        );
+})
 
 let routes = (
     <Route name="app" path="/" handler={App}>
