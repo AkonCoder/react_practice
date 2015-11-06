@@ -3,14 +3,22 @@
  */
 
 import React, {Component} from 'react';
+import {colorAction} from '../flux/colorAction';
+import {colorStore} from '../flux/colorStore';
 
 class ColorBar extends Component {
     shouldComponentUpdate(nextProps, nextState){
         return false;
     }
 
+    handleHover(colorId){
+        let preColorId = colorStore.getColorId();
+        if(preColorId != colorId){
+            colorAction.changeColorId(colorId);
+        }
+    }
+
     render(){
-        console.log('Render Color Bar Component');
         return (
 
             <ul>
@@ -18,7 +26,7 @@ class ColorBar extends Component {
                 {this.props.colors.map(function(color){
                     return (
                         <li key = {color.id}
-                            onMouseOver = {this.props.onColorHover.bind(null, color.id)}
+                            onMouseOver = {this.handleHover.bind(this, color.id)}
                             className = {color.value}>
                         </li>
                     )

@@ -1,0 +1,62 @@
+.contianer{
+    margin: 0 auto;
+    width: 600px;
+    height: 300px;
+}
+h3{
+    text-align: center;
+}
+.demos{
+    margin-top: 20px;
+    border: 1px dashed #97b0ff;
+}
+.color-display{
+    height: 100px;
+    width: 100px;
+    margin: 0 auto;
+    border: 3px solid #ccc;
+    text-align: center;
+    line-height: 100px;
+    font-size: 25px;
+    font-weight: bold;
+    color: white;
+}
+ul{
+    list-style: none;
+    margin-top: 20px;
+    border: 1px dashed #97b0ff;
+}
+
+ul li{
+    width: 70px;
+    height: 70px;
+    display: inline-block;
+    position: relative;
+}
+ul li:hover{
+    cursor: pointer;
+}
+.red{
+    background-color: red;
+    left: -5px;
+}
+.blue{
+    background-color: blue;
+    left: 15px;
+}
+.green{
+    background-color: green;
+    left: 35px;
+}
+.yellow{
+    background-color: yellow;
+    left: 60px;
+}
+.pink{
+    background-color: pink;
+    left: 80px;
+}
+.black{
+    background-color: black;
+    left: 100px;
+}

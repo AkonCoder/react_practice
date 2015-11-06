@@ -5,6 +5,8 @@ var ReactDom = require('react-dom');
 import React from 'react';
 import ColorPanel from './panel/colorPanel';
 
+require('./app.css');
+
 //var Team = React.createClass({
 //    onHungry: function(name) {
 //        console.log(name + " is hungry");

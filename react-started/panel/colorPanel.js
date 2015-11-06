@@ -4,6 +4,7 @@
 import React, {Component} from 'react';
 import ColorDisplay from './colorDisplay';
 import ColorBar from './colorBar';
+import {colorStore} from '../flux/colorStore'
 
 class ColorPanel extends Component {
     //getDefaultProps(){
@@ -31,8 +32,9 @@ class ColorPanel extends Component {
     constructor(props){
         super(props);
         this.state = {
-            selectedColor: this.getSelectedColor(this.props.defaultColorId)
-        }
+            selectedColor: this.getSelectedColor(colorStore.getColorId())
+        };
+        colorStore.listenChange(this.onColorHover.bind(this));
     }
 
     getSelectedColor(colorId){
@@ -51,20 +53,20 @@ class ColorPanel extends Component {
     }
 
     shouldComponentUpdate(nextProps, nextState){
-        return this.selectedColor.id !== nextState.selectedColor.id;
+        return this.state.selectedColor.id !== nextState.selectedColor.id;
     }
 
     render(){
-        console.log('Render Color Panel', this.state.selectedColor);
         return (
             <div>
                 <ColorDisplay selectedColor = {this.state.selectedColor} />
-                <ColorBar colors = {this.props.colors} onColorHover = {this.onColorHover} />
+                <ColorBar colors = {this.props.colors}  />
             </div>
         )
     }
 
-    onColorHover(colorId){
+    onColorHover(){
+        let colorId = colorStore.getColorId();
         this.setState({
             selectedColor: this.getSelectedColor(colorId)
         })
@@ -79,8 +81,7 @@ ColorPanel.defaultProps = {
         {id: 4, value: 'yellow', title: 'yellow'},
         {id: 5, value: 'pink', title: 'pink'},
         {id: 6, value: 'black', title: 'black'}
-    ],
-    defaultColorId: 1
+    ]
 };
 
 //ColorPanel.state = {

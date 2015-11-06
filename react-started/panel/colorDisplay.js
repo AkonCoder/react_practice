@@ -9,7 +9,6 @@ class ColorDisplay extends Component {
     }
 
     render(){
-        console.log('Render Color Display Component');
         return (
             <div className = 'color-display'>
                 <div className = {this.props.selectedColor.value}>

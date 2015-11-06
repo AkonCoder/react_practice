@@ -7,7 +7,7 @@ var path = require('path');
 module.exports = {
     entry: path.resolve(__dirname, './app.js'),
     output: {
-        //path: path.resolve(__dirname, './assets'),
+        path: __dirname,
         filename: 'vendor.js'
     },
     module:{
@@ -16,6 +16,9 @@ module.exports = {
                 test: /\.jsx?$/,
                 exclude: /(node_modules|bower_components)/,
                 loader: 'babel-loader'
+            }, {
+                test: /\.css$/,
+                loader: 'style-loader!css-loader'
             }
         ]
     }
