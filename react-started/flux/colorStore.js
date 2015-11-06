@@ -18,6 +18,6 @@ export let colorStore = {
 
     setColorId(colorId){
         this.colorId = colorId;
-        emitter.emit('colorChange', colorId);
+        emitter.emit('colorChange');
     }
 };
