@@ -4,7 +4,7 @@
 
 ```
 clone https://github.com/dwqs/react_practice.git
-cd react-started
+cd ./react_practice/react-started
 npm i && npm run build
 ```
 
