@@ -1,5 +1,3 @@
 ###react practice
 
-webpack 示例：
-
-`cd react-sample && npm i && npm run build`
+some react practice
