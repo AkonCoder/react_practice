@@ -7,10 +7,6 @@ import {colorAction} from '../flux/colorAction';
 import {colorStore} from '../flux/colorStore';
 
 class ColorBar extends Component {
-    shouldComponentUpdate(nextProps, nextState){
-        return false;
-    }
-
     handleHover(colorId){
         let preColorId = colorStore.getColorId();
         if(preColorId != colorId){
